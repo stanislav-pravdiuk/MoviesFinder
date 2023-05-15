@@ -1,30 +1,19 @@
-import { NavLink, Route, Routes } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
+import Home from 'pages/Home';
+import Movies from 'pages/Movies';
+import MovieDetails from 'pages/MovieDetails';
+import { Layout } from 'components/Layout';
 
 export const App = () => {
   return (
-    <div
-      style={{
-        // height: '100vh',
-        // display: 'flex',
-        // justifyContent: 'center',
-        // alignItems: 'center',
-        fontSize: 40,
-        color: '#010101'
-      }}>
-      <ul>
-        <li><NavLink to='/'>Home</NavLink></li>
-        <li><NavLink to='/movies'>Movies</NavLink></li>
-        <li><NavLink to='/movies/:movieId'>MovieDetails</NavLink></li>
-        <li><NavLink to='/movies/:movieId/cast'>Cast</NavLink></li>
-        <li><NavLink to='/movies/:movieId/reviews'>Reviews</NavLink></li>
-      </ul>
       <Routes>
-        <Route path='/' element={<div>Home</div>} />
-        <Route path='/movies' element={<div>Movies</div>} />
-        <Route path='/movies/:movieId' element={<div>MovieDetails</div>} />
-        <Route path='/movies/:movieId/cast' element={<div>Cast</div>} />
-        <Route path='/movies/:movieId/reviews' element={<div>Reviews</div>} />
+        <Route path='/' element={<Layout/>}>
+          <Route index element={<Home />} />
+          <Route path='movies' element={<Movies/>} />
+          <Route path='movies/:movieId' element={<MovieDetails/>} />
+          <Route path='movies/:movieId/cast' element={<div>Cast</div>} />
+          <Route path='movies/:movieId/reviews' element={<div>Reviews</div>} />
+        </Route>
       </Routes>
-    </div>
   );
 };
