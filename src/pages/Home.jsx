@@ -1,13 +1,13 @@
 // import { useEffect } from "react";
-import {Link} from 'react-router-dom'
+// import {Link} from 'react-router-dom'
 
-function Home() {
+// function Home() {
     // пропсы, стейты
     // useEffect(() => {
     //     http запрос
     // }, []);
 
-    return ( "home"
+//     return ( "home"
     // <div>
     //     {["movie1", "movie2", "movie3", "movie4"].map(movie => {
     //         return <Link key={movie} to={`${movie}`}>
@@ -16,6 +16,24 @@ function Home() {
     //         })
     //         }
     // </div>
+//     )
+// };
+
+// export default Home;
+
+import { Link } from 'react-router-dom';
+
+function Home() {
+    return (
+
+    <div>
+        {["movie5", "movie6", "movie7", "movie8"].map(movie => {
+            return <Link key={movie} to={`${movie}`}>
+                        {movie}
+                    </Link>
+            })
+            }
+    </div>
     )
 };
 

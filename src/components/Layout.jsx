@@ -6,9 +6,9 @@ export const Layout = () => {
                     <ul>
                         <li><NavLink to='/'>Home</NavLink></li>
                         <li><NavLink to='/movies'>Movies</NavLink></li>
-                        <li><NavLink to='/movies/:movieId'>MovieDetails</NavLink></li>
-                        <li><NavLink to='/movies/:movieId/cast'>Cast</NavLink></li>
-                        <li><NavLink to='/movies/:movieId/reviews'>Reviews</NavLink></li>
+                        {/* <li><NavLink to='/movies/:movieId'>MovieDetails</NavLink></li> */}
+                        {/* <li><NavLink to='/movies/:movieId/cast'>Cast</NavLink></li>
+                        <li><NavLink to='/movies/:movieId/reviews'>Reviews</NavLink></li> */}
                     </ul>
                 </header>
                 <main>  
