@@ -1,9 +1,9 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { Link, useLocation, useSearchParams } from 'react-router-dom';
 
 function Movies() {
 
-    const [movies, setMovies] = useState([
+    const [movies] = useState([
         "movie1", "movie2", "movie3", "movie4"
     ]);
     
