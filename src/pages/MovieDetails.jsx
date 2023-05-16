@@ -1,5 +1,5 @@
 import { Outlet, useParams, Link, useLocation } from "react-router-dom";
-import { useRef } from "react";
+import { useRef, Suspense } from "react";
 
 function MovieDetails() {
     const { movieId } = useParams();
@@ -22,7 +22,9 @@ function MovieDetails() {
                 <Link to='reviews'>Reviews</Link>
             </li>
         </ul>
-        <Outlet />
+            <Suspense fallback={<div>Loading...</div>}>
+                <Outlet />
+            </Suspense>
         </div>;
 
 };

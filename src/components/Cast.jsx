@@ -1,6 +1,8 @@
-const { useParams } = require('react-router-dom')
+import { useParams } from "react-router-dom";
 
-export const Cast = () => {
+function Cast() {
     const { movieId } = useParams();
     return <div>Cast: { movieId }</div>;
 };
+
+export default Cast;
