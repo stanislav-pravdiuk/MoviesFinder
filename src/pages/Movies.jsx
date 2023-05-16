@@ -1,11 +1,13 @@
 import { useEffect, useState } from 'react';
-import { Link, useSearchParams } from 'react-router-dom';
+import { Link, useLocation, useSearchParams } from 'react-router-dom';
 
 function Movies() {
 
     const [movies, setMovies] = useState([
         "movie1", "movie2", "movie3", "movie4"
-    ])
+    ]);
+    
+    const location = useLocation();
     const [searchParams, setSearchParams] = useSearchParams();
     const movieId = searchParams.get('movieId') ?? '';
 
@@ -32,7 +34,7 @@ function Movies() {
             <ul>
                 {visibleMovies.map(movie => {
                     return <li>
-                        <Link key={movie} to={`${movie}`}>
+                        <Link key={movie} state={{ from: location}} to={`${movie}`}>
                             {movie}
                         </Link>
                     </li>
