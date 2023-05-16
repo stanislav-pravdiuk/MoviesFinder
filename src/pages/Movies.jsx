@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { Link, useLocation, useSearchParams } from 'react-router-dom';
+import getMovies from 'services/fetchAPI';
 
 function Movies() {
 
@@ -10,6 +11,7 @@ function Movies() {
     const location = useLocation();
     const [searchParams, setSearchParams] = useSearchParams();
     const movieId = searchParams.get('movieId') ?? '';
+
 
     // useEffect
     //     < HTTP >
@@ -30,11 +32,15 @@ function Movies() {
                 value={movieId}
                 onChange={updateQueryString}
             />
-            <button onClick={() => setSearchParams({ c: 'FUCK'})}>change sp</button>
+            <button onClick={() => getMovies()
+                .then(el => { console.log(el) })
+                .catch(error => { console.log(error) })
+            }
+            >change sp</button>
             <ul>
                 {visibleMovies.map(movie => {
-                    return <li>
-                        <Link key={movie} state={{ from: location}} to={`${movie}`}>
+                    return <li key={movie}>
+                        <Link state={{ from: location}} to={`${movie}`}>
                             {movie}
                         </Link>
                     </li>
