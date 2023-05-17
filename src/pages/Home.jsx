@@ -1,39 +1,36 @@
-// import { useEffect } from "react";
-// import {Link} from 'react-router-dom'
-
-// function Home() {
-    // пропсы, стейты
-    // useEffect(() => {
-    //     http запрос
-    // }, []);
-
-//     return ( "home"
-    // <div>
-    //     {["movie1", "movie2", "movie3", "movie4"].map(movie => {
-    //         return <Link key={movie} to={`${movie}`}>
-    //                     {movie}
-    //                 </Link>
-    //         })
-    //         }
-    // </div>
-//     )
-// };
-
-// export default Home;
-
 import { Link } from 'react-router-dom';
+import { useEffect, useState } from 'react';
+import getMovies from 'services/fetchAPI';
 
 function Home() {
-    return (
+    const [popularMovies, setPopularMovies] = useState([]);
+    const [isFirstRender, setIsFirstRender] = useState(true);
 
-    <div>
-        {["movie5", "movie6", "movie7", "movie8"].map(movie => {
-            return <Link key={movie} to={`${movie}`}>
-                        {movie}
-                    </Link>
-            })
-            }
-    </div>
+    const fetchParams = `trending/all/day?api_key=`;
+
+    useEffect(() => {
+        if (isFirstRender) {
+            getMovies(fetchParams)
+                .then(response => setPopularMovies(response.results))
+                .catch(error => { console.log(error) });
+            
+            setIsFirstRender(false);
+        }
+    });
+
+    return (
+        <div>
+            <ul>
+                {popularMovies.map(movie => {
+                    return <li key={movie.id}>
+                        <Link to={`${movie.id}`}>
+                            {movie.id}
+                        </Link>
+                    </li>
+                })
+                }
+            </ul>
+        </div>
     )
 };
 
