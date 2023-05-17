@@ -1,18 +1,22 @@
 import { Outlet, useParams, Link, useLocation } from "react-router-dom";
-import { useRef, Suspense } from "react";
+import { useRef, Suspense, useEffect, useState } from "react";
+import getMovies from "services/fetchAPI";
 
 function MovieDetails() {
+    const [movieDetails, setMovieDitails] = useState({});
     const { movieId } = useParams();
     const location = useLocation();
     const backLinkLocationRef = useRef(location.state?.from ?? '/movies');
+    const fetchParams = `movie/${movieId}?api_key=`;
     
-        // пропсы, стейты
-    // useEffect(() => {
-    //     http запрос
-    // }, []);
+    useEffect(() => {
+        getMovies(fetchParams)
+            .then(response => setMovieDitails(response))
+            .catch(error => { console.log(error) });
+    }, [fetchParams]);
 
     return <div>
-        <h1>MovieDetails: {movieId}</h1>
+        <h1>{movieDetails.original_title}</h1>
         <Link to={backLinkLocationRef.current}>Back</Link>
         <ul>
             <li>

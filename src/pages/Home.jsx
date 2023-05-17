@@ -1,9 +1,10 @@
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import getMovies from 'services/fetchAPI';
 
 function Home() {
     const [popularMovies, setPopularMovies] = useState([]);
+    const location = useLocation();
     const fetchParams = `trending/all/day?api_key=`;
 
     useEffect(() => {
@@ -17,8 +18,8 @@ function Home() {
             <ul>
                 {popularMovies.map(movie => {
                     return <li key={movie.id}>
-                        <Link to={`${movie.id}`}>
-                            {movie.id}
+                        <Link state={{ from: location}} to={`${movie.id}`}>
+                            {movie.original_title}
                         </Link>
                     </li>
                 })

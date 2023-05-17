@@ -1,8 +1,28 @@
+import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
+import getMovies from "services/fetchAPI";
 
 function Cast() {
+
+    const [cast, setCast] = useState([])
     const { movieId } = useParams();
-    return <div>Cast: { movieId }</div>;
-};
+    const fetchParams = `movie/${movieId}/credits?api_key=`;
+
+    useEffect(() => {
+        getMovies(fetchParams)
+            .then(response => setCast(response.cast))
+            .catch(error => { console.log(error) });
+    }, [fetchParams]);
+
+    return (<div>
+        <ul>
+            {cast.map(artist => {
+                return <li>
+                    {artist.original_name} ({artist.character})
+                </li>
+            })}
+        </ul>
+    </div>)
+}
 
 export default Cast;

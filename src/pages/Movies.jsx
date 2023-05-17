@@ -1,22 +1,24 @@
-import { useState } from 'react';
 import { Link, useLocation, useSearchParams } from 'react-router-dom';
-import getMovies from 'services/fetchAPI';
+import { useState } from 'react';
+import queryMovies from 'services/queryAPI';
 
 function Movies() {
 
-    const [movies] = useState([
-        "movie1", "movie2", "movie3", "movie4"
-    ]);
-    
-    const location = useLocation();
+    const [movies, setMovies] = useState([]);
     const [searchParams, setSearchParams] = useSearchParams();
+
+    const location = useLocation();
     const movieId = searchParams.get('movieId') ?? '';
 
 
-    // useEffect
-    //     < HTTP >
-
-    const visibleMovies = movies.filter(movie => movie.includes(movieId))
+    const fetchParams = `search/movie?api_key=`;
+    const query = `&query=${movieId}`;
+    
+    function searchMovie() {
+        queryMovies(fetchParams, query)
+            .then(response => setMovies(response.results))
+            .catch(error => { console.log(error) })
+    };
 
     function updateQueryString(e) {
         if (e.target.value === '') {
@@ -32,19 +34,16 @@ function Movies() {
                 value={movieId}
                 onChange={updateQueryString}
             />
-            <button onClick={() => getMovies()
-                .then(el => { console.log(el) })
-                .catch(error => { console.log(error) })
-            }
-            >change sp</button>
+            <button onClick={searchMovie}>Search</button>
             <ul>
-                {visibleMovies.map(movie => {
-                    return <li key={movie}>
-                        <Link state={{ from: location}} to={`${movie}`}>
-                            {movie}
+                {movies.map(movie => {
+                    return <li key={movie.id}>
+                        <Link state={{ from: location}} to={`${movie.id}`}>
+                            {movie.original_title}
                         </Link>
                     </li>
-                })}
+                })
+                }
             </ul>    
         </div>
     )
