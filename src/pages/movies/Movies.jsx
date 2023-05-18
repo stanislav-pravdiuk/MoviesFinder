@@ -1,14 +1,14 @@
-import { Link, useLocation, useSearchParams } from 'react-router-dom';
+import { useSearchParams } from 'react-router-dom';
 import { useState } from 'react';
 import queryMovies from 'services/queryAPI';
-import css from './movies.module.css'
+import css from './movies.module.css';
+import Gallery from 'components/gallery/Gallery';
 
 function Movies() {
 
     const [movies, setMovies] = useState([]);
     const [searchParams, setSearchParams] = useSearchParams();
 
-    const location = useLocation();
     const movieId = searchParams.get('movieId') ?? '';
 
 
@@ -29,26 +29,19 @@ function Movies() {
     };
 
     return (
-        <div className={css.searchbar}>
-            <form className={css.searchForm}>
-                <input
-                className={css.searchForm__input}
-                type="text"
-                value={movieId}
-                onChange={updateQueryString}
-                onKeyDown={searchMovie}
-                />
-            </form>
-            <ul>
-                {movies.map(movie => {
-                    return <li key={movie.id}>
-                        <Link state={{ from: location}} to={`${movie.id}`}>
-                            {movie.original_title}
-                        </Link>
-                    </li>
-                })
-                }
-            </ul>    
+        <div>
+            <div className={css.searchbar}>
+                <form className={css.searchForm}>
+                    <input
+                    className={css.searchForm__input}
+                    type="text"
+                    value={movieId}
+                    onChange={updateQueryString}
+                    onKeyDown={searchMovie}
+                    />
+                </form>
+            </div>
+            <Gallery object={movies} />
         </div>
     )
 };
