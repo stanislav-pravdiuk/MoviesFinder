@@ -1,0 +1,32 @@
+.info a {
+    color: black;
+    font-size: 14px;
+    line-height: 1.14;
+    font-weight: 700;
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 30px;
+    margin-left: 20px;
+    margin-bottom: 20px;
+}
+
+.info__content {
+    display: flex;
+}
+
+.info__content p {
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 1.14;
+    margin-top: 20px;
+}
+
+.info__title {
+    margin-left: 20px;
+}
+
+.info__poster {
+    height: 100%;
+    width: 600px;
+    margin: 20px;
+}
