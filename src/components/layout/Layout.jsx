@@ -1,12 +1,13 @@
 import { NavLink, Outlet } from 'react-router-dom';
 import { Suspense } from 'react';
+import css from './layout.module.css'
 
 function Layout() {
     return <div>
                 <header>
                     <ul>
-                        <li><NavLink to='/'>Home</NavLink></li>
-                        <li><NavLink to='/movies'>Movies</NavLink></li>
+                        <li className={css.header__btn}><NavLink to='/'>Home</NavLink></li>
+                        <li className={css.header__btn}><NavLink to='/movies'>Movies</NavLink></li>
                     </ul>
                 </header>
                 <main>
@@ -14,7 +15,9 @@ function Layout() {
                         <Outlet />
                     </Suspense>
                 </main>
-                <footer>Footer</footer>
+                <footer>
+                    <h1>directed by Stanislav Pravdiyk ©</h1>
+                </footer>
             </div>;  
 };
 
