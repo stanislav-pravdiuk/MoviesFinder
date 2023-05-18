@@ -17,7 +17,7 @@ function Cast() {
     return (<div>
         <ul>
             {cast.map(artist => {
-                return <li>
+                return <li key={artist.id}>
                     {artist.original_name} ({artist.character})
                 </li>
             })}
