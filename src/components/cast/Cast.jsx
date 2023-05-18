@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import getMovies from "services/fetchAPI";
+import css from './cast.module.css'
 
 function Cast() {
 
@@ -14,7 +15,7 @@ function Cast() {
             .catch(error => { console.log(error) });
     }, [fetchParams]);
 
-    return (<div>
+    return (<div className={css.cast}>
                 <ul>
                     {cast.map(artist => {
                         return <li key={artist.id}>
