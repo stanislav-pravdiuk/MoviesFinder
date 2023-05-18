@@ -1,5 +1,6 @@
 import { Link, useLocation } from 'react-router-dom';
 import css from './gallery.module.css';
+import PropTypes from 'prop-types';
 
 function Gallery({ object }) {
 
@@ -21,6 +22,10 @@ function Gallery({ object }) {
                 }
             </ul>
     )
+};
+
+Gallery.propTypes = {
+    object: PropTypes.arrayOf(PropTypes.object).isRequired
 };
 
 export default Gallery
