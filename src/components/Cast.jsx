@@ -15,14 +15,14 @@ function Cast() {
     }, [fetchParams]);
 
     return (<div>
-        <ul>
-            {cast.map(artist => {
-                return <li key={artist.id}>
-                    {artist.original_name} ({artist.character})
-                </li>
-            })}
-        </ul>
-    </div>)
+                <ul>
+                    {cast.map(artist => {
+                        return <li key={artist.id}>
+                            {artist.original_name} ({artist.character})
+                        </li>
+                    })}
+                </ul>
+            </div>)
 }
 
 export default Cast;

@@ -18,7 +18,7 @@ function Home() {
             <ul>
                 {popularMovies.map(movie => {
                     return <li key={movie.id}>
-                        <Link state={{ from: location}} to={`${movie.id}`}>
+                        <Link state={{ from: location}} to={`/movies/${movie.id}`}>
                             {movie.original_title}
                         </Link>
                     </li>

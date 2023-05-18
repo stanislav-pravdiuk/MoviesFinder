@@ -14,15 +14,15 @@ function Reviews() {
             .catch(error => { console.log(error) });
     }, [fetchParams]);
     
-    return <div>
-        <ul>
-            {reviews.map(review => {
-                return <li key={review.id}>
-                    <a href={review.url}>{review.author}</a>
-                </li>
-            })}
-        </ul>
-    </div>
+    return<div>
+                <ul>
+                    {reviews.map(review => {
+                        return <li key={review.id}>
+                            <a href={review.url}>{review.author}</a>
+                        </li>
+                    })}
+                </ul>
+            </div>
 };
 
 export default Reviews;
