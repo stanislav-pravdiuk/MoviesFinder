@@ -28,6 +28,13 @@ function Movies() {
         setSearchParams({movieId: e.target.value})
     };
 
+    function handleKeyDown(e) {
+        if (e.key === 'Enter') {
+            e.preventDefault();
+            searchMovie();
+        }   
+    };
+
     return (
         <div>
             <div className={css.searchbar}>
@@ -37,7 +44,7 @@ function Movies() {
                     type="text"
                     value={movieId}
                     onChange={updateQueryString}
-                    onKeyDown={searchMovie}
+                    onKeyDown={handleKeyDown}
                     />
                 </form>
             </div>
