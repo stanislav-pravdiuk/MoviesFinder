@@ -36,6 +36,7 @@ ul {
 
 .active {
     color: black;
+    font-size: 25px;
 }
 
 footer {

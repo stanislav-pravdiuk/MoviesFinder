@@ -6,8 +6,12 @@ function Layout() {
     return <div>
                 <header>
                     <ul>
-                        <li className={css.header__btn}><NavLink to='/'>Home</NavLink></li>
-                        <li className={css.header__btn}><NavLink to='/movies'>Movies</NavLink></li>
+                        <li className={css.header__btn}>
+                    <NavLink exact activeClassName={css.active} to='/'>Home</NavLink>
+                        </li>
+                        <li className={css.header__btn}>
+                            <NavLink exact activeClassName={css.active} to='/movies'>Movies</NavLink>
+                        </li>
                     </ul>
                 </header>
                 <main>
