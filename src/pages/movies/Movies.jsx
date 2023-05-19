@@ -1,5 +1,5 @@
 import { useSearchParams } from 'react-router-dom';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import queryMovies from 'services/queryAPI';
 import css from './movies.module.css';
 import Gallery from 'components/gallery/Gallery';
@@ -11,9 +11,14 @@ function Movies() {
 
     const movieId = searchParams.get('movieId') ?? '';
 
-
     const fetchParams = `search/movie?api_key=`;
     const query = `&query=${movieId}`;
+
+    useEffect(() => {
+        if (movieId !== '') {
+        searchMovie()
+    }
+    }, [fetchParams])
     
     function searchMovie() {
         queryMovies(fetchParams, query)
