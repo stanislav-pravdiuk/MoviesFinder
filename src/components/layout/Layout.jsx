@@ -7,10 +7,10 @@ function Layout() {
                 <header>
                     <ul>
                         <li className={css.header__btn}>
-                    <NavLink exact activeClassName={css.active} to='/'>Home</NavLink>
+                            <NavLink className={({ isActive}) => isActive && css.active} to='/'>Home</NavLink>
                         </li>
                         <li className={css.header__btn}>
-                            <NavLink exact activeClassName={css.active} to='/movies'>Movies</NavLink>
+                            <NavLink className={({ isActive}) => isActive && css.active} to='/movies'>Movies</NavLink>
                         </li>
                     </ul>
                 </header>
