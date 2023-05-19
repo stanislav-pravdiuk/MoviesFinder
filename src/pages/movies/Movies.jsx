@@ -17,8 +17,9 @@ function Movies() {
     useEffect(() => {
         if (movieId !== '') {
         searchMovie()
-    }
-    }, [fetchParams])
+        }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [])
     
     function searchMovie() {
         queryMovies(fetchParams, query)
