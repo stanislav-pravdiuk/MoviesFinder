@@ -25,8 +25,8 @@ ul {
     margin: 0;
 }
 
-a {
-    color: #091a77;
+.header__btn a {
+    /* color: #091a77; */
     font-size: 14px;
     line-height: 1.14;
     font-weight: 700;
