@@ -1,21 +1,21 @@
 header{
-        top: 0;
-            left: 0;
-            position: sticky;
-            z-index: 1100;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 64px;
-            padding-right: 24px;
-            padding-left: 24px;
-            padding-top: 12px;
-            padding-bottom: 12px;
-            margin-bottom: 10px;
-            color: #fff;
-            background-color: #3f51b5;
-            box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.2),
-                0px 4px 5px 0px rgba(0, 0, 0, 0.14), 0px 1px 10px 0px rgba(0, 0, 0, 0.12);
+    top: 0;
+    left: 0;
+    position: sticky;
+    z-index: 1100;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 64px;
+    padding-right: 24px;
+    padding-left: 24px;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    margin-bottom: 10px;
+    color: #fff;
+    background-color: #3f51b5;
+    box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.2),
+        0px 4px 5px 0px rgba(0, 0, 0, 0.14), 0px 1px 10px 0px rgba(0, 0, 0, 0.12);
 }
 
 ul {
@@ -31,6 +31,11 @@ ul {
     line-height: 1.14;
     font-weight: 700;
     padding-left: 10px;
+    text-decoration: none;
+}
+
+.active {
+    color: black;
 }
 
 footer {
@@ -42,7 +47,6 @@ footer {
     font-weight: 700;
     background-color: #3f51b5;
     position: fixed;
-    /* left: 0; */
     bottom: 0;
     width: 100%;
     margin-top: 10px;
