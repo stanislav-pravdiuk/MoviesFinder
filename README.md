@@ -1,1 +1,1 @@
-![](./assets/url-string.jpg)
+![](./assets/preview.jpg)
